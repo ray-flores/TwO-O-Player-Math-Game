@@ -41,20 +41,30 @@ def start
         else
           @player2.life_points -= 1
         end
+
+        if @player1.life_points == 0 || @player2.life_points == 0
+          if @player1.life_points == 0
+            puts "Player 2 wins with a score of #{@player2.life_points}/3"
+            puts "----GAME OVER----"
+            puts "Good bye!"
+            return;
+          else
+            puts "Player 1 wins with a score of #{@player1.life_points}/3"
+            puts "----GAME OVER----"
+            puts "Good bye!"
+            return;
+          end
+        end
+
         puts "#{@my_turn}: Seriously? No!"
         puts "P1: #{@player1.life_points}/3 vs P2: #{@player2.life_points}/3"
         puts "---NEW TURN---"
         @turn = !@turn
       end
+
       ask_question
+
     end
-
-    if @player1.life_points == 0 || @player2.life_points == 0
-      puts "#{"
-
-
-
-
 
   end
 
