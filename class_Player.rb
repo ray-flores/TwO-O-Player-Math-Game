@@ -5,12 +5,11 @@ class Player
   def initialize(num)
     @name = "Player #{num}"
     @life_points = 3
-    puts "You are Player #{num}"
+    puts "Welcome Player #{num}"
   end
 
 end
 
 
-p player1 = Player.new(1)
-
-p player2 = Player.new(2)
+# p player3 = Player.new(3)
+# p player4 = Player.new(4)

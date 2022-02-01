@@ -13,7 +13,6 @@ class Question
 end
 
 
-q1 = Question.new
-
-puts q1.prompt
+# q1 = Question.new
+# puts q1.prompt
 

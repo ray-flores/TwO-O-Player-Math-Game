@@ -1,10 +1,34 @@
-require 'class_player'
-require 'class_question'
+require './class_player'
+require './class_question'
 
 
 
+def start
+
+  player1 = Player.new(1)
+  player2 = Player.new(2)
+
+  turn = false
+
+  if player1.life_points > 0 && player2.life_points > 0 && turn == false
+
+    q = Question.new
+    turn = true
+
+    puts "Player 1: " + q.prompt
+    print "> "
+    
+    # choice = gets.chomp
+
+    # if choice == q.ans
+    #   puts ''
 
 
+  end
+
+end
+
+start
 
 
   # function starts, two players are instantiated  
