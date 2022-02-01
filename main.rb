@@ -5,35 +5,60 @@ require './class_question'
 
 def start
 
-  player1 = Player.new(1)
-  player2 = Player.new(2)
+  @player1 = Player.new(1)
+  @player2 = Player.new(2)
 
-  turn = false
+  @turn = false
 
-  if player1.life_points > 0 && player2.life_points > 0 && turn == false
+  def ask_question
+    if @player1.life_points > 0 && @player2.life_points > 0 
 
-    q = Question.new
-    turn = true
+      q = Question.new
 
-    puts "Player 1: " + q.prompt
-    print "> "
-    
-    choice = gets.chomp
+      @my_turn = "Player 1"
 
-    if choice.to_i == q.ans
-      puts "Player 1: YES! You are correct"
-      puts "P1: #{player1.life_points}/3 vs P2: #{player2.life_points}/3"
-      puts "---NEW TURN---"
-    else
-      player1.life_points -= 1
-      puts "Player 1: Seriously? No!"
-      puts "P1: #{player1.life_points}/3 vs P2: #{player2.life_points}/3"
-      puts "---NEW TURN---"
+      if @turn == false
+        @my_turn = "Player 1"
+      end
+
+      if @turn == true 
+        @my_turn = "Player 2"
+      end
+  
+      puts "#{@my_turn}: " + q.prompt
+      print "> "
+      
+      choice = gets.chomp
+  
+      if choice.to_i == q.ans
+        puts "#{@my_turn}: YES! You are correct"
+        puts "P1: #{@player1.life_points}/3 vs P2: #{@player2.life_points}/3"
+        puts "---NEW TURN---"
+        @turn = !@turn
+      else
+        if @turn == false
+          @player1.life_points -= 1
+        else
+          @player2.life_points -= 1
+        end
+        puts "#{@my_turn}: Seriously? No!"
+        puts "P1: #{@player1.life_points}/3 vs P2: #{@player2.life_points}/3"
+        puts "---NEW TURN---"
+        @turn = !@turn
+      end
+      ask_question
     end
+
+    if @player1.life_points == 0 || @player2.life_points == 0
+      puts "#{"
+
+
 
 
 
   end
+
+  ask_question
 
 end
 
