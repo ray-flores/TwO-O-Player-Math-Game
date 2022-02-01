@@ -1,0 +1,2 @@
+require 'class_player'
+
