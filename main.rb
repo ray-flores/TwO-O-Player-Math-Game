@@ -18,10 +18,19 @@ def start
     puts "Player 1: " + q.prompt
     print "> "
     
-    # choice = gets.chomp
+    choice = gets.chomp
 
-    # if choice == q.ans
-    #   puts ''
+    if choice.to_i == q.ans
+      puts "Player 1: YES! You are correct"
+      puts "P1: #{player1.life_points}/3 vs P2: #{player2.life_points}/3"
+      puts "---NEW TURN---"
+    else
+      player1.life_points -= 1
+      puts "Player 1: Seriously? No!"
+      puts "P1: #{player1.life_points}/3 vs P2: #{player2.life_points}/3"
+      puts "---NEW TURN---"
+    end
+
 
 
   end
@@ -45,7 +54,7 @@ start
 
   # IF RIGHT: print validation and scoreboard of lives
   
-  # IF WRONG: print warning and scoreboard
+  # IF WRONG: print warning decr life points and show scoreboard
 
 # IF both lives are still > 0, new turn begins using second player (could use boolean to change who's asking next)
 
