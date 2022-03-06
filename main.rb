@@ -1,20 +1,14 @@
 require './class_player'
 require './class_question'
 
-
-
 def start
-
   @player1 = Player.new(1)
   @player2 = Player.new(2)
-
   @turn = false
 
   def ask_question
     if @player1.life_points > 0 && @player2.life_points > 0 
-
       q = Question.new
-
       @my_turn = "Player 1"
 
       if @turn == false
@@ -26,8 +20,7 @@ def start
       end
   
       puts "#{@my_turn}: " + q.prompt
-      print "> "
-      
+      print "> "     
       choice = gets.chomp
   
       if choice.to_i == q.ans
@@ -41,7 +34,6 @@ def start
         else
           @player2.life_points -= 1
         end
-
         if @player1.life_points == 0 || @player2.life_points == 0
           if @player1.life_points == 0
             puts "Player 2 wins with a score of #{@player2.life_points}/3"
@@ -61,15 +53,10 @@ def start
         puts "---NEW TURN---"
         @turn = !@turn
       end
-
       ask_question
-
     end
-
   end
-
   ask_question
-
 end
 
 start
